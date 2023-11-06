@@ -31,22 +31,57 @@ namespace TextBasedMap
         // ` = grass
         // ~ = water
         // * = trees
+        static int i = 0;
+
 
         static void Main(string[] args)
         {
+            Console.WriteLine("------------------------");
+            Console.WriteLine("Text Based Map!");
+            Console.WriteLine("------------------------");
+            DisplayMap();
+            
+            
+            
+
+
         }
         
         static void DisplayMap()
         {
-            DisplayMap(1);
+            int width = 11;
+            int height = 29;
 
+            for (int x = 0; x <= width - 1; x++)
+            {
+                for (int y = 0; y <= height - 1; y++)
+                {
+                    Console.Write(map[x, y]);
+                    if (x == i)
+                    {
+                        Console.WriteLine("");
+                        i++;
+                    }
+                }
+            }
+
+            Console.ReadLine();
         }
-
         static void DisplayMap(int scale)
-        {
-
-        }
-
-
+            {
+            
+            } 
     }
 }
+
+
+
+
+
+
+       
+
+
+
+
+
