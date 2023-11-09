@@ -79,7 +79,7 @@ namespace TextBasedMap
             Console.WriteLine("+" + new string('-', map.GetLength(1) * scale) + "+");
             for (int y = 0; y < map.GetLength(0); y++)
             {
-                for (int rowSize = 0; rowSize < scale; rowSize++);
+                for (int rowSize = 0; rowSize < scale; rowSize++)
                 {
                     Console.Write('|');
                     for (int x = 0; x < map.GetLength(1); x++) 
