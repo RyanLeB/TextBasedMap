@@ -36,12 +36,31 @@ namespace TextBasedMap
 
         static void Main(string[] args)
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("------------------------");
             Console.WriteLine("Text Based Map!");
             Console.WriteLine("------------------------");
             Console.WriteLine();
-            Console.WriteLine("map legend:\n        ^ = mountain\n        ` = grass\n        ~ = water\n        * = trees");
-            Console.WriteLine();
+            
+            Console.WriteLine("map legend:\n");
+            Console.ResetColor();
+
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.WriteLine("^ = mountain\n");
+            Console.ResetColor();
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("` = grass\n");
+            Console.ResetColor();
+
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("~ = water\n");
+            Console.ResetColor();
+
+            Console.ForegroundColor= ConsoleColor.DarkGreen;
+            Console.WriteLine("* = trees\n");
+            Console.ResetColor();
+
             Console.WriteLine("Map (unscaled)");
             DisplayMap();
 
@@ -68,8 +87,13 @@ namespace TextBasedMap
 
         }
         
+
+        // DisplayMap() Method
+
         static void DisplayMap()
         {
+            // for loop for x and y coordinate to generate map
+            
             Console.WriteLine("+" + new string('-', map.GetLength(1)) + "+");
             for (int y = 0; y < map.GetLength(0); y++)
             {
@@ -87,8 +111,13 @@ namespace TextBasedMap
             Console.WriteLine("+" + new string('-', map.GetLength(1)) + "+");
             
         }
+        
+        // Scaled DisplayMap Method
+        
         static void DisplayMap(int scale)
         {
+            // Nested for loops to generate scaled map
+
             Console.WriteLine("+" + new string('-', map.GetLength(1) * scale) + "+");
             for (int y = 0; y < map.GetLength(0); y++)
             {
@@ -115,10 +144,12 @@ namespace TextBasedMap
 
         static void SetColor(char terrain)
         {
+            // switch statement to setup colors
+            
             switch (terrain)
             {
                 case '^':
-                    Console.ForegroundColor = ConsoleColor.Gray; // mountain color
+                    Console.ForegroundColor = ConsoleColor.DarkGray; // mountain color
                     break;
                 case '`':
                     Console.ForegroundColor = ConsoleColor.Green; // grass color
