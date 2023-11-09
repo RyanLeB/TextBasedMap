@@ -58,7 +58,7 @@ namespace TextBasedMap
             Console.WriteLine();
 
 
-            Console.WriteLine("Larger Map (scaled x6)");
+            Console.WriteLine("Larger Custom Map (scaled x6)");
             DisplayMap(6);
             // must enlarge window to see true result!!!
             
