@@ -40,6 +40,7 @@ namespace TextBasedMap
             Console.WriteLine("Text Based Map!");
             Console.WriteLine("------------------------");
             Console.WriteLine();
+            Console.WriteLine("map legend:\n        ^ = mountain\n        ` = grass\n        ~ = water\n        * = trees");
             Console.WriteLine();
             Console.WriteLine("Map (unscaled)");
             DisplayMap();
@@ -53,6 +54,14 @@ namespace TextBasedMap
             Console.WriteLine();
             Console.WriteLine("Map (scaled x3)");
             DisplayMap(3);
+            Console.WriteLine();
+            Console.WriteLine();
+
+
+            Console.WriteLine("Larger Map (scaled x6)");
+            DisplayMap(6);
+            // must enlarge window to see true result!!!
+            
             Console.ReadKey(true);
             
 
@@ -67,7 +76,11 @@ namespace TextBasedMap
                 Console.Write("|");
                 for (int x = 0; x < map.GetLength(1); x++)
                 {
+                    // setting color and writing map
+
+                    SetColor(map[y, x]);
                     Console.Write(map[y, x]);
+                    Console.ResetColor();
                 }
                 Console.WriteLine("|");
             }
@@ -86,7 +99,11 @@ namespace TextBasedMap
                     {
                         for (int columnSize = 0; columnSize < scale; columnSize++)
                         {
+                            // setting color and writing map
+                            
+                            SetColor(map[y, x]);
                             Console.Write(map[y, x]);
+                            Console.ResetColor();
                         }
                     }
                     Console.WriteLine("|");
@@ -94,7 +111,32 @@ namespace TextBasedMap
 
             }
             Console.WriteLine("+" + new string('-', map.GetLength(1) * scale) + "+");
-        } 
+        }
+
+        static void SetColor(char terrain)
+        {
+            switch (terrain)
+            {
+                case '^':
+                    Console.ForegroundColor = ConsoleColor.Gray; // mountain color
+                    break;
+                case '`':
+                    Console.ForegroundColor = ConsoleColor.Green; // grass color
+                    break;
+                case '~':
+                    Console.ForegroundColor = ConsoleColor.Blue; // water color
+                    break;
+                case '*':
+                    Console.ForegroundColor = ConsoleColor.DarkGreen; // tree color
+                    break;
+                default:
+                    Console.ResetColor();
+                    break;
+            }
+        }
+
+
+
     }
 }
 
