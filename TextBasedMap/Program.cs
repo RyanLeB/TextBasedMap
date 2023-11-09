@@ -145,6 +145,7 @@ namespace TextBasedMap
         static void SetColor(char terrain)
         {
             // switch statement to setup colors
+            // in the case of 'character' it will set the color then break before the next character is added
             
             switch (terrain)
             {
